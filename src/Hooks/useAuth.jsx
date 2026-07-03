@@ -4,8 +4,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateEmail,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+  updatePassword,
 } from "firebase/auth";
-import { doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import {
+  doc,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+  getDoc,
+} from "firebase/firestore";
 
 export default function useAuth() {
   const [loading, setLoading] = useState(false);
@@ -62,5 +72,76 @@ export default function useAuth() {
     }
   };
 
-  return { loading, error, signUp, signIn, logOut };
+  const getProfile = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const snapShot = await getDoc(doc(db, "users", auth.currentUser.uid));
+
+      if (snapShot.exists()) {
+        return snapShot.data();
+      }
+      return null;
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateProfile = async (name, email) => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const res = await updateEmail(auth.currentUser, email);
+      await updateDoc(doc(db, "users", auth.currentUser.uid), {
+        name,
+        email,
+      });
+
+      return res;
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const changePassword = async (currPassword, newPassword) => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const credential = EmailAuthProvider.credential(
+        auth.currentUser.email,
+        currPassword,
+      );
+
+      await reauthenticateWithCredential(auth.currentUser, credential);
+
+      const res = await updatePassword(auth.currentUser, newPassword);
+
+      return res;
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return {
+    loading,
+    error,
+    signUp,
+    signIn,
+    logOut,
+    getProfile,
+    updateProfile,
+    changePassword,
+  };
 }
