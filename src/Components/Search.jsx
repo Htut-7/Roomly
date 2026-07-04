@@ -1,17 +1,26 @@
 import { useState } from "react";
 import "../Css/Search.css";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [dest, setDest] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guest, setGuest] = useState("");
+  const navigate = useNavigate();
+
+  const searchHotel = async (e) => {
+    e.preventDefault();
+    navigate(
+      `/hotels?destination=${encodeURIComponent(dest)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guest}`,
+    );
+  };
 
   return (
     <div className="search">
       <div className="search-container">
-        <form className="search-form">
+        <form className="search-form" onSubmit={searchHotel}>
           <div className="search-input">
             <input
               type="text"
@@ -40,8 +49,10 @@ export default function Search() {
               value={guest}
             />
             <div className="search-btn">
-              <FaSearch />
-              Search
+              <button type="submit">
+                <FaSearch />
+                Search
+              </button>
             </div>
           </div>
         </form>
