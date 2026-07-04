@@ -1,0 +1,135 @@
+.search {
+  width: 100%;
+  margin-top: -45px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+.search-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.search-form {
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e5ece9;
+  overflow: hidden;
+}
+
+.search-input {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 0.9fr auto;
+  align-items: center;
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  padding: 28px 24px;
+  font-size: 0.96rem;
+  color: #1f2937;
+  background: transparent;
+  border-right: 1px solid #edf2f7;
+  transition: 0.3s;
+}
+
+.search-input input:last-of-type {
+  border-right: none;
+}
+
+.search-input input::placeholder {
+  color: #94a3b8;
+}
+
+.search-input input:focus {
+  background: #f8fbfa;
+}
+
+.search-btn {
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  background: #0f766e;
+  color: white;
+  padding: 0 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.search-btn:hover {
+  background: #115e59;
+}
+
+.search-btn svg {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+  .search-input {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-input input {
+    border-right: none;
+    border-bottom: 1px solid #edf2f7;
+    padding: 22px;
+  }
+
+  .search-btn {
+    grid-column: 1 / -1;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search {
+    margin-top: 30px;
+  }
+
+  .search-form {
+    border-radius: 18px;
+  }
+
+  .search-input {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input input {
+    border-bottom: 1px solid #edf2f7;
+    padding: 18px;
+  }
+
+  .search-btn {
+    width: 100%;
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    padding: 0 15px;
+  }
+
+  .search-form {
+    border-radius: 16px;
+  }
+
+  .search-input input {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  .search-btn {
+    padding: 16px;
+    font-size: 0.92rem;
+  }
+}
