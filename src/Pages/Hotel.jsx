@@ -7,7 +7,6 @@ import {
   FaSwimmingPool,
   FaParking,
   FaSnowflake,
-  FaCoffee,
   FaUserFriends,
 } from "react-icons/fa";
 import "../Css/Hotel.css";
@@ -19,6 +18,9 @@ export default function Hotel() {
   const [searchParams] = useSearchParams();
 
   const destination = searchParams.get("destination") || "";
+  const checkIn=searchParams.get("checkIn");
+  const checkOut=searchParams.get('checkOut');
+  const guests=searchParams.get('guests');
 
   const filteredHotel = hotel.filter((hotel) => {
     return hotel.city
@@ -82,13 +84,6 @@ export default function Hotel() {
                       </span>
                     )}
 
-                    {h.breakfast && (
-                      <span>
-                        <FaCoffee />
-                        Breakfast
-                      </span>
-                    )}
-
                     {h.pool && (
                       <span>
                         <FaSwimmingPool />
@@ -117,9 +112,7 @@ export default function Hotel() {
                       {h.guests} Guests
                     </span>
 
-                    <span>{h.bedrooms} Bedroom</span>
-
-                    <span>{h.beds} Bed</span>
+                    <span>{h.bedrooms} Bed</span>
 
                     <span>{h.bathrooms} Bathroom</span>
                   </div>
@@ -132,7 +125,7 @@ export default function Hotel() {
 
                   <p>per night</p>
 
-                  <Link to={`/hotel/${h.id}`}>Check Room</Link>
+                  <Link to={`/detail/${h.id}?checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`}>Check Room</Link>
                 </div>
               </div>
             </div>
