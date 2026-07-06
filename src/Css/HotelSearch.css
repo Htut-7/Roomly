@@ -1,9 +1,6 @@
 .search {
   width: 100%;
-  margin-top: -45px;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 10;
+  margin: 20px 0;
   padding: 0 20px;
 }
 
@@ -18,6 +15,8 @@
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
   border: 1px solid #e5ece9;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .search-input {

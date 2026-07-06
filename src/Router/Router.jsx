@@ -11,6 +11,7 @@ import Apartment from "../Pages/Apartments";
 import Detail from "../Pages/Detail";
 import Booking from "../Pages/Booking";
 import MyBookings from "../Pages/MyBookings";
+import Wishlist from "../Pages/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         {
           path: '/bookings',
           element: <MyBookings/>
+        },
+        {
+          path: '/wishlist',
+          element: <Wishlist/>
         }
     ]
   },

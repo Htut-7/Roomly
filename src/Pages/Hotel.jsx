@@ -12,6 +12,7 @@ import {
 import "../Css/Hotel.css";
 import useHotels from "../Hooks/useHotels";
 import { useSearchParams } from "react-router-dom";
+import useWishlist from "../Hooks/useWishlist";
 
 export default function Hotel() {
   const { loading, error, getHotel, hotel } = useHotels();
@@ -21,6 +22,7 @@ export default function Hotel() {
   const checkIn=searchParams.get("checkIn");
   const checkOut=searchParams.get('checkOut');
   const guests=searchParams.get('guests');
+  const {addWishList}=useWishlist();
 
   const filteredHotel = hotel.filter((hotel) => {
     return hotel.city
@@ -32,6 +34,18 @@ export default function Hotel() {
   useEffect(() => {
     getHotel();
   }, []);
+
+  const wishItem=async(h)=>{
+    await addWishList(
+      h.id,
+      h.name,
+      h.country,
+      h.city,
+      h.address,
+      h.price,
+      h.image
+    );
+  };
 
   return (
     <section className="hotel">
@@ -126,6 +140,7 @@ export default function Hotel() {
                   <p>per night</p>
 
                   <Link to={`/detail/${h.id}?checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`}>Check Room</Link>
+                  <button className='hotel-wishlist-btn' type="button" onClick={()=>wishItem(h)}>Wishlist</button>
                 </div>
               </div>
             </div>
