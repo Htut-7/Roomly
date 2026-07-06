@@ -1,0 +1,278 @@
+.mybookings {
+  min-height: 100vh;
+  padding: 90px 20px;
+  background: #f8fafc;
+}
+
+.mybook-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.mybook-container > h2 {
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.mybook-container > p {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  text-align: center;
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.mybook-spinner {
+  width: 50px;
+  height: 50px;
+  margin: 40px auto;
+  display: block;
+  border: 4px solid #dbe4ea;
+  border-top: 4px solid #0f766e;
+  border-radius: 50%;
+  animation: mybookSpin .8s linear infinite;
+}
+
+@keyframes mybookSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mybook-error,
+.empty-booking {
+  max-width: 550px;
+  margin: 0 auto 40px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.mybook-error {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.empty-booking {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #64748b;
+}
+
+.mybook-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.mybook-single {
+  display: grid;
+  grid-template-columns: 340px 1fr 220px;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, .08);
+  transition: .35s ease;
+}
+
+.mybook-single:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, .12);
+}
+
+.mybook-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.mybook-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: .4s;
+}
+
+.mybook-single:hover .mybook-image img {
+  transform: scale(1.06);
+}
+
+.mybook-info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mybook-info h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.mybook-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: .98rem;
+}
+
+.mybook-info svg {
+  color: #0f766e;
+  min-width: 18px;
+}
+
+.mybook-price {
+  border-left: 1px solid #eef2f7;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-label {
+  color: #94a3b8;
+  font-size: .9rem;
+}
+
+.mybook-price h2 {
+  font-size: 2.6rem;
+  color: #0f766e;
+  margin: 10px 0 6px;
+  font-weight: 800;
+}
+
+.mybook-price p {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.booking-status {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+@media (max-width: 1100px) {
+  .mybook-single {
+    grid-template-columns: 300px 1fr 190px;
+  }
+
+  .mybook-price h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .mybookings {
+    padding: 70px 20px;
+  }
+
+  .mybook-container > h2 {
+    font-size: 2.3rem;
+  }
+
+  .mybook-single {
+    grid-template-columns: 1fr;
+  }
+
+  .mybook-image {
+    height: 260px;
+  }
+
+  .mybook-info {
+    padding: 24px;
+  }
+
+  .mybook-price {
+    border-left: none;
+    border-top: 1px solid #eef2f7;
+    align-items: flex-start;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mybookings {
+    padding: 60px 18px;
+  }
+
+  .mybook-container > h2 {
+    font-size: 2rem;
+  }
+
+  .mybook-container > p {
+    margin-bottom: 40px;
+    font-size: .95rem;
+  }
+
+  .mybook-image {
+    height: 220px;
+  }
+
+  .mybook-info h3 {
+    font-size: 1.45rem;
+  }
+
+  .mybook-info p {
+    font-size: .95rem;
+  }
+
+  .mybook-price h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mybookings {
+    padding: 50px 15px;
+  }
+
+  .mybook-container > h2 {
+    font-size: 1.75rem;
+  }
+
+  .mybook-container > p {
+    font-size: .9rem;
+  }
+
+  .mybook-single {
+    border-radius: 18px;
+  }
+
+  .mybook-image {
+    height: 190px;
+  }
+
+  .mybook-info,
+  .mybook-price {
+    padding: 20px;
+  }
+
+  .mybook-info h3 {
+    font-size: 1.25rem;
+  }
+
+  .mybook-price h2 {
+    font-size: 1.8rem;
+  }
+
+  .booking-status {
+    width: 100%;
+  }
+}

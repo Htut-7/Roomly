@@ -55,7 +55,7 @@ export default function Navbar() {
             <span className="dropdown-title">Your Bookings</span>
 
             <div className="dropdown-menu">
-              <NavLink to="/booking">Bookings</NavLink>
+              <NavLink to="/bookings">Bookings</NavLink>
               <NavLink to="/wishlist">Wishlist</NavLink>
             </div>
           </div>

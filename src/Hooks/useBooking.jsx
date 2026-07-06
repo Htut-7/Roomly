@@ -11,7 +11,7 @@ export default function useBooking() {
     const  user =auth.currentUser;
 
 
-    const addBooking=async(hotelId,name,image,address,city,country,guests,checkIn,checkOut,price)=>{
+    const addBooking=async(hotelId,name,image,address,city,country,guests,checkIn,checkOut,room,price)=>{
         try{
             setLoading(true);
             setError(null);
@@ -27,6 +27,7 @@ export default function useBooking() {
                 guests,
                 checkIn,
                 checkOut,
+                room,
                 price,
                 status: "Confirmed",
                 addedAt: serverTimestamp()
