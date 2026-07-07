@@ -7,11 +7,12 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Profile from "../Pages/Profile";
 import Hotel from "../Pages/Hotel";
-import Apartment from "../Pages/Apartments";
 import Detail from "../Pages/Detail";
 import Booking from "../Pages/Booking";
 import MyBookings from "../Pages/MyBookings";
 import Wishlist from "../Pages/Wishlist";
+import Flights from "../Pages/Flights";
+import FlightDetail from "../Pages/FlightDetail";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +40,6 @@ const router = createBrowserRouter([
           element: <Hotel/>
         },
         {
-          path: '/apartments',
-          element: <Apartment/>
-        },
-        {
           path: '/detail/:id',
           element: <Detail/>
         },
@@ -57,6 +54,14 @@ const router = createBrowserRouter([
         {
           path: '/wishlist',
           element: <Wishlist/>
+        },
+        {
+          path: '/flights',
+          element: <Flights/>
+        },
+        {
+          path: '/flight-detail/:id',
+          element: <FlightDetail/>
         }
     ]
   },

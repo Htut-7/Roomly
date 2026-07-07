@@ -1,0 +1,213 @@
+.flight-detail {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 80px 20px;
+}
+
+.flight-detail-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.flight-detail-spinner {
+  width: 46px;
+  height: 46px;
+  display: block;
+  margin: 60px auto;
+  border: 4px solid #dbe4ea;
+  border-top: 4px solid #0f766e;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.flight-detail-error {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 14px;
+  border-radius: 12px;
+  background: #fee2e2;
+  color: #dc2626;
+  text-align: center;
+}
+
+.flight-detail-info {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, .08);
+}
+
+.flight-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flight-detail-content img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.flight-detail-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.flight-detail-content > p:first-of-type {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.flight-detail-content h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f766e;
+  margin-bottom: 18px;
+}
+
+.flight-detail-content > p:last-of-type {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 32px;
+}
+
+.flight-seat,
+.flight-terminal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+}
+
+.flight-seat p,
+.flight-terminal p {
+  color: #111827;
+  font-weight: 600;
+}
+
+.flight-seat span,
+.flight-terminal span {
+  color: #64748b;
+  font-size: .95rem;
+}
+
+.flight-book-btn {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.flight-book-btn button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 14px;
+  background: #0f766e;
+  color: #ffffff;
+  font-size: .96rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.flight-book-btn button:hover {
+  background: #115e59;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 118, 110, .25);
+}
+
+.flight-book-btn button:active {
+  transform: scale(.98);
+}
+
+.flight-book-btn button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .flight-book-btn button {
+    height: 50px;
+    font-size: .92rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .flight-detail {
+    padding: 60px 16px;
+  }
+
+  .flight-detail-info {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  .flight-detail-content img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .flight-detail-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .flight-detail-content h4 {
+    font-size: 1.25rem;
+  }
+
+  .flight-detail-content > p:last-of-type {
+    font-size: 2rem;
+  }
+
+  .flight-seat,
+  .flight-terminal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flight-detail {
+    padding: 50px 14px;
+  }
+
+  .flight-detail-info {
+    padding: 22px 18px;
+  }
+
+  .flight-detail-content h3 {
+    font-size: 1.35rem;
+  }
+
+  .flight-detail-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .flight-detail-content > p:last-of-type {
+    font-size: 1.8rem;
+  }
+
+  .flight-book-btn a {
+    height: 50px;
+    font-size: .92rem;
+  }
+}

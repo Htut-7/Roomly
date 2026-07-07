@@ -1,0 +1,137 @@
+.flight-search {
+  width: 100%;
+  margin: 24px 0;
+  padding: 0 20px;
+}
+
+.flight-search-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.flight-search-form {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.flight-search-form input {
+  width: 100%;
+  height: 56px;
+  border: 1px solid #dbe4ea;
+  border-radius: 14px;
+  padding: 0 18px;
+  font-size: .95rem;
+  color: #1f2937;
+  background: #fff;
+  transition: .3s ease;
+}
+
+.flight-search-form input::placeholder {
+  color: #94a3b8;
+}
+
+.flight-search-form input:focus {
+  outline: none;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, .12);
+}
+
+.flight-search-form label {
+  margin-bottom: -12px;
+  color: #334155;
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.flight-search-btn {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.flight-search-btn button {
+  width: 220px;
+  height: 56px;
+  border: none;
+  border-radius: 14px;
+  background: #0f766e;
+  color: #ffffff;
+  font-size: .96rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.flight-search-btn button:hover {
+  background: #115e59;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 118, 110, .25);
+}
+
+.flight-search-btn button:active {
+  transform: scale(.98);
+}
+
+@media (max-width: 992px) {
+  .flight-search-form {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px;
+  }
+
+  .flight-search-btn {
+    justify-content: stretch;
+  }
+
+  .flight-search-btn button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .flight-search {
+    padding: 0 16px;
+  }
+
+  .flight-search-form {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .flight-search-form input {
+    height: 54px;
+    font-size: .92rem;
+  }
+
+  .flight-search-form label {
+    font-size: .9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .flight-search {
+    padding: 0 14px;
+  }
+
+  .flight-search-form {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .flight-search-form input {
+    height: 52px;
+    padding: 0 16px;
+  }
+
+  .flight-search-btn button {
+    height: 52px;
+    font-size: .92rem;
+  }
+}

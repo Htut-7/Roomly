@@ -46,7 +46,7 @@ export default function Navbar() {
 
             <div className="dropdown-menu">
               <NavLink to='/hotels'>All Hotels</NavLink>
-              <NavLink to="/air-tickets">Air Tickets</NavLink>
+              <NavLink to="/flights">Air Tickets</NavLink>
               <NavLink to="/activity-tickets">Activity Tickets</NavLink>
             </div>
           </div>
