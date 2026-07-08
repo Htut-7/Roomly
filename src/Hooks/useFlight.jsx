@@ -1,4 +1,11 @@
-import { collection, doc, getDoc, onSnapshot, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../Firebase/firebase";
 
@@ -6,7 +13,7 @@ export default function useFlight() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [flight, setFlight] = useState([]);
-  const [singleFlight,setSingleFlight]=useState([])
+  const [singleFlight, setSingleFlight] = useState([]);
 
   const getFlight = async () => {
     try {
@@ -30,29 +37,28 @@ export default function useFlight() {
     }
   };
 
-  const getSingleFlight=async(id)=>{
-    try{
+  const getSingleFlight = async (id) => {
+    try {
       setLoading(true);
       setError(null);
 
-      const snapShot=await getDoc(doc(db,'flights',id));
+      const snapShot = await getDoc(doc(db, "flights", id));
 
-      if(snapShot.exists()){
+      if (snapShot.exists()) {
         setSingleFlight({
-          id:snapShot.id,
-          ...snapShot.data()
-        })
-      }else{
-        setError('Flight not found');
+          id: snapShot.id,
+          ...snapShot.data(),
+        });
+      } else {
+        setError("Flight not found");
       }
-
-    }catch(error){
+    } catch (error) {
       setError(error.message);
       setLoading(false);
-    }finally{
+    } finally {
       setLoading(false);
     }
-  }
+  };
 
   return { loading, error, flight, getFlight, getSingleFlight, singleFlight };
 }

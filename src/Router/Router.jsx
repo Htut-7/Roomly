@@ -13,6 +13,8 @@ import MyBookings from "../Pages/MyBookings";
 import Wishlist from "../Pages/Wishlist";
 import Flights from "../Pages/Flights";
 import FlightDetail from "../Pages/FlightDetail";
+import FlightBooking from "../Pages/FlightBooking";
+import MyFlight from "../Pages/MyFlight";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
         {
           path: '/flight-detail/:id',
           element: <FlightDetail/>
+        },
+        {
+          path: '/flight-booking/:id',
+          element: <FlightBooking/>
+        },
+        {
+          path: '/myFlight',
+          element: <MyFlight/>
         }
     ]
   },

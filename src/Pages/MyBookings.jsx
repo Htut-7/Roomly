@@ -7,13 +7,19 @@ import {
   FaMapMarkerAlt,
   FaUserFriends,
 } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../Contexts/AuthContext";
 
 export default function MyBookings() {
   const { loading, error, getBooking, booking } = useBooking();
 
+  const { user }=useContext(AuthContext);
+
   useEffect(() => {
-    getBooking();
-  }, []);
+    if(user){
+      getBooking();
+    }
+  }, [user]);
 
   return (
     <div className="mybookings">
