@@ -1,6 +1,7 @@
 import "../Css/TabSearch.css";
 import HotelsSearch from "../Components/HotelsSearch";
 import FlightSearch from "./FlightSearch";
+import ActivitiesSearch from "./ActivitiesSearch";
 import { useState } from "react";
 
 export default function TabSearch() {
@@ -33,6 +34,7 @@ export default function TabSearch() {
 
       {active === "hotel" && <HotelsSearch />}
       {active === "flights" && <FlightSearch/>}
+      {active ==="activities" && <ActivitiesSearch/>}
     </section>
   );
 }
