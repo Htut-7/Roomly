@@ -16,6 +16,7 @@ import FlightDetail from "../Pages/FlightDetail";
 import FlightBooking from "../Pages/FlightBooking";
 import MyFlight from "../Pages/MyFlight";
 import Activities from "../Pages/Activities";
+import ActivityDetail from "../Pages/ActivityDetail";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
         },{
           path: '/activities',
           element: <Activities/>
+        },
+        {
+          path: '/activity-detail/:id',
+          element: <ActivityDetail/>
         }
     ]
   },

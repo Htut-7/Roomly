@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { db } from "../Firebase/firebase";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDoc, getDocs, orderBy, query } from "firebase/firestore";
 
 export default function useActivity() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [activity, setActivity] = useState([]);
+  const [singleActivity,setSingleActivity]=useState([]);
 
   const getActivity = async () => {
     try {
@@ -28,5 +29,27 @@ export default function useActivity() {
     }
   };
 
-  return { loading, error, getActivity, activity };
+  const getSingleActivity=async(id)=>{
+    try{
+      setLoading(true);
+      setError(null);
+
+      const snapShot=await getDoc(db,"activities",id);
+
+      if(snapShot.exists()){
+        setSingleActivity({
+          id:snapShot.id,
+          ...snapShot.data()
+        });
+      }
+
+    }catch(error){
+      setError(error.message);
+      setLoading(false);
+    }finally{
+      setLoading(false);
+    }
+  };
+
+  return { loading, error, getActivity, activity, getSingleActivity, singleActivity };
 }
