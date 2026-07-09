@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "../Css/Activities.css";
 import useActivity from "../Hooks/useActivity";
 import { useSearchParams } from "react-router-dom";
-import { FaMapMarkerAlt, FaTag, FaClock, FaUsers } from "react-icons/fa";
+import { FaMapMarkerAlt, FaTag, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Activities() {
@@ -19,9 +19,20 @@ export default function Activities() {
     getActivity();
   }, []);
 
-  const filterActivity = activity.filter((f) =>
-    f.city.toLowerCase().includes(destination.toLowerCase())
-  );
+  const filterActivity = activity.filter((f) => {
+  const search = destination.toLowerCase();
+
+  const matchesDestination =
+    !destination ||
+    f.city?.toLowerCase().includes(search) ||
+    f.country?.toLowerCase().includes(search);
+
+  const matchesCategory =
+    !category ||
+    f.category?.toLowerCase() === category.toLowerCase();
+
+  return matchesDestination && matchesCategory;
+});
 
   return (
     <div className="activity">
@@ -66,13 +77,6 @@ export default function Activities() {
                     <span>
                       <FaClock />
                       {fa.duration}
-                    </span>
-                  )}
-
-                  {fa.maxParticipants && (
-                    <span>
-                      <FaUsers />
-                      Up to {fa.maxParticipants} people
                     </span>
                   )}
                 </div>

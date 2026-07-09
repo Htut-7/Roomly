@@ -12,8 +12,8 @@ export default function ActivitiesSearch() {
     const navigate=useNavigate();
 
     const activityHandler=async(e)=>{
-        e.prevntDefault();
-        navigate(`/activities?destination=${encodeURIComponent(destination)}&date=${date}$participants=${participants}&category=${category}`)
+        e.preventDefault();
+        navigate(`/activities?destination=${encodeURIComponent(destination)}&date=${date}&participants=${participants}&category=${category}`)
     }
 
   return (
