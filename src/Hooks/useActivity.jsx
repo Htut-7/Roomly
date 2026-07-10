@@ -13,7 +13,7 @@ export default function useActivity() {
       setLoading(true);
       setError(null);
 
-      const q = query(collection(db, "activities"), orderBy("addedAt"));
+      const q = query(collection(db, "activities"));
 
       const snapShot = await getDocs(q);
       const data = snapShot.docs.map((doc) => ({

@@ -17,6 +17,8 @@ import FlightBooking from "../Pages/FlightBooking";
 import MyFlight from "../Pages/MyFlight";
 import Activities from "../Pages/Activities";
 import ActivityDetail from "../Pages/ActivityDetail";
+import ActivityBooking from "../Pages/ActivityBooking";
+import MyActivity from "../Pages/MyActivity";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
         {
           path: '/activity-detail/:id',
           element: <ActivityDetail/>
+        },
+        {
+          path: '/activity-booking/:id',
+          element: <ActivityBooking/>
+        },
+        {
+          path: '/my-activity',
+          element: <MyActivity/>
         }
     ]
   },

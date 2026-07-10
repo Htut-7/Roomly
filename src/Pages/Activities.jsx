@@ -19,17 +19,27 @@ export default function Activities() {
     getActivity();
   }, []);
 
+  console.log("activity state:", activity);
+console.log("activity length:", activity.length);
+console.log("destination:", destination);
+console.log("category:", category);
+
   const filterActivity = activity.filter((f) => {
-  const search = destination.toLowerCase();
+  const search = destination.trim().toLowerCase();
+  const selectedCategory = category.trim().toLowerCase();
+
+  const city = f.city?.trim().toLowerCase() || "";
+  const country = f.country?.trim().toLowerCase() || "";
+  const activityCategory = f.category?.trim().toLowerCase() || "";
 
   const matchesDestination =
-    !destination ||
-    f.city?.toLowerCase().includes(search) ||
-    f.country?.toLowerCase().includes(search);
+    !search ||
+    city.includes(search) ||
+    country.includes(search);
 
   const matchesCategory =
-    !category ||
-    f.category?.toLowerCase() === category.toLowerCase();
+    !selectedCategory ||
+    activityCategory === selectedCategory;
 
   return matchesDestination && matchesCategory;
 });

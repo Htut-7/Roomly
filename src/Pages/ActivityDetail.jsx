@@ -106,7 +106,7 @@ export default function ActivityDetail() {
                     Book Now
                   </button>
                 ) : (
-                  <button onClick={`/activity-booking/${singleActivity.id}`}>
+                  <button onClick={()=>navigate(`/activity-booking/${singleActivity.id}`)}>
                     Select Dates
                   </button>
                 )}

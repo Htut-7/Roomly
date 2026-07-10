@@ -1,0 +1,360 @@
+.activity-booking {
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 20px 90px;
+  background: #f8fafc;
+}
+
+.activity-booking-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.activity-booking-container > h2 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 2.2rem;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.activity-booking-container > p {
+  max-width: 720px;
+  margin: 0 0 36px;
+  color: #64748b;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.activity-booking-grid {
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.activity-booking-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.07);
+}
+
+.activity-booking-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.activity-booking-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.activity-booking-card:hover .activity-booking-image img {
+  transform: scale(1.03);
+}
+
+.activity-booking-information {
+  min-width: 0;
+  padding: 30px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.activity-booking-information > h3 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.activity-booking-information > p {
+  margin: 0 0 24px;
+}
+
+.activity-booking-information > p > span {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.activity-booking-information > p svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: #0f766e;
+  font-size: 0.95rem;
+}
+
+.activity-booking-price {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.activity-booking-price > span {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.activity-booking-price h3 {
+  margin: 0;
+  color: #0f766e;
+  font-size: 1.9rem;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.activity-booking-price p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.activity-booking-form-contianer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.activity-booking-form {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+}
+
+.activity-booking-form > h3 {
+  margin: 0 0 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #111827;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.activity-booking-form form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+}
+
+.activity-booking-form label {
+  margin-top: 4px;
+  color: #374151;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.activity-booking-form input {
+  width: 100%;
+  height: 52px;
+  padding: 0 15px;
+  border: 1px solid #dbe4ea;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: inherit;
+  font-size: 0.94rem;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.activity-booking-form input:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+}
+
+.activity-booking-form input::placeholder {
+  color: #94a3b8;
+}
+
+.activity-booking-form-btn {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+.activity-booking-form-btn button {
+  min-width: 190px;
+  min-height: 52px;
+  padding: 13px 26px;
+  border: none;
+  border-radius: 11px;
+  background: #0f766e;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.activity-booking-form-btn button:hover {
+  background: #115e59;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(15, 118, 110, 0.24);
+}
+
+.activity-booking-form-btn button:active {
+  transform: scale(0.98);
+}
+
+.activity-booking-spinner {
+  width: 46px;
+  height: 46px;
+  display: block;
+  margin: 70px auto;
+  border: 4px solid #dbe4ea;
+  border-top-color: #0f766e;
+  border-radius: 50%;
+  animation: activity-booking-spin 0.8s linear infinite;
+}
+
+@keyframes activity-booking-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.activity-booking-error {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 14px 18px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .activity-booking-card {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+
+  .activity-booking-information {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .activity-booking {
+    padding: 50px 16px 70px;
+  }
+
+  .activity-booking-container > h2 {
+    font-size: 1.85rem;
+  }
+
+  .activity-booking-container > p {
+    margin-bottom: 30px;
+    font-size: 0.92rem;
+  }
+
+  .activity-booking-card {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-booking-image {
+    height: 300px;
+  }
+
+  .activity-booking-information {
+    padding: 25px;
+  }
+
+  .activity-booking-form {
+    padding: 26px;
+  }
+
+  .activity-booking-form form {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .activity-booking-form-btn {
+    grid-column: auto;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-booking {
+    padding: 40px 14px 60px;
+  }
+
+  .activity-booking-container > h2 {
+    font-size: 1.6rem;
+  }
+
+  .activity-booking-container > p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .activity-booking-card {
+    border-radius: 15px;
+  }
+
+  .activity-booking-image {
+    height: 230px;
+  }
+
+  .activity-booking-information {
+    padding: 20px;
+  }
+
+  .activity-booking-information > h3 {
+    font-size: 1.3rem;
+  }
+
+  .activity-booking-price h3 {
+    font-size: 1.65rem;
+  }
+
+  .activity-booking-form {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .activity-booking-form > h3 {
+    margin-bottom: 22px;
+    font-size: 1.2rem;
+  }
+
+  .activity-booking-form input {
+    height: 50px;
+    font-size: 0.9rem;
+  }
+
+  .activity-booking-form-btn button {
+    width: 100%;
+    min-height: 50px;
+    font-size: 0.92rem;
+  }
+}
