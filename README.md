@@ -1,16 +1,50 @@
-# React + Vite
+# Roomly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Roomly is a modern room booking web application that allows users to discover available rooms, make reservations, and manage their bookings through a simple and user-friendly interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- User registration and login
+- Firebase Authentication
+- Browse available rooms
+- Create and manage room bookings
+- View personal booking history
+- Protected routes for authenticated users
+- User profile management
+- Responsive and modern user interface
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Firebase Authentication
+- Cloud Firestore
+- React Router
+- CSS
+- React Icons
 
-## Expanding the ESLint configuration
+## Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Roomly uses Firebase Authentication to provide secure user registration, login, logout, and password management functionality. Protected routes ensure that only authenticated users can access personal pages such as bookings and profiles.
+
+## Responsive Design
+
+The application is designed to provide a smooth experience across desktop, tablet, and mobile devices.
+
+## Getting Started
+
+Clone the repository:
+
+git clone https://github.com/Htut-7/Roomly.git
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+## Developer
+
+Developed by Sithu Htut as a frontend development portfolio project.
