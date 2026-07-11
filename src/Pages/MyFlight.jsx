@@ -29,6 +29,12 @@ export default function MyFlight() {
 
         {loading && <span className="book-flight-spinner"></span>}
 
+        {!loading && flightBooking.length===0 && (
+          <p className="empty-booking">
+            You haven't made any booking yet.
+          </p>
+        )}
+
         {error && <p className="book-flight-error">{error}</p>}
 
         <div className="book-flight-grid">

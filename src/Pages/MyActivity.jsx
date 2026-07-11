@@ -27,6 +27,10 @@ export default function MyActivity() {
 
         {loading && <span className="my-activity-spinner"></span>}
 
+        {!loading && activity.length===0 && (
+            <p className="activity-empty-booking">You haven't made any booking yet.</p>
+        )}
+
         {error && <p className="my-activity-error">{error}</p>}
 
         <div className="my-activity-item">

@@ -1,5 +1,7 @@
 import {
   createBrowserRouter,
+  RouterProvider,
+  Navigate,
 } from "react-router-dom";
 import App from "../App";
 import Home from "../Pages/Home";
@@ -20,85 +22,108 @@ import ActivityDetail from "../Pages/ActivityDetail";
 import ActivityBooking from "../Pages/ActivityBooking";
 import MyActivity from "../Pages/MyActivity";
 import About from "../Pages/About";
+import { useContext } from "react";
+import { AuthContext } from "../Contexts/AuthContext";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-    children: [
-        {
-            path: '',
-            element: <Home/>
-        },
-        {
-            path: '/register',
-            element: <Register/>
-        },
-        {
-            path: '/login',
-            element: <Login/>
-        },
-        {
-          path: '/profile',
-          element: <Profile/>
-        },
-        {
-          path: '/hotels',
-          element: <Hotel/>
-        },
-        {
-          path: '/detail/:id',
-          element: <Detail/>
-        },
-        {
-          path: '/booking/:id',
-          element: <Booking/>
-        },
-        {
-          path: '/bookings',
-          element: <MyBookings/>
-        },
-        {
-          path: '/wishlist',
-          element: <Wishlist/>
-        },
-        {
-          path: '/flights',
-          element: <Flights/>
-        },
-        {
-          path: '/flight-detail/:id',
-          element: <FlightDetail/>
-        },
-        {
-          path: '/flight-booking/:id',
-          element: <FlightBooking/>
-        },
-        {
-          path: '/myFlight',
-          element: <MyFlight/>
-        },{
-          path: '/activities',
-          element: <Activities/>
-        },
-        {
-          path: '/activity-detail/:id',
-          element: <ActivityDetail/>
-        },
-        {
-          path: '/activity-booking/:id',
-          element: <ActivityBooking/>
-        },
-        {
-          path: '/my-activity',
-          element: <MyActivity/>
-        },
-        {
-          path: '/about',
-          element: <About/>
-        }
-    ]
-  },
-]);
+export default function Router() {
+  const { authReady, user } = useContext(AuthContext);
+  const isAuthenticated = !!user;
 
-export default router;
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          path: "",
+          element: isAuthenticated ? <Home /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/register",
+          element: !isAuthenticated ? <Register /> : <Navigate to="/" />,
+        },
+        {
+          path: "/login",
+          element: !isAuthenticated ? <Login /> : <Navigate to="/" />,
+        },
+        {
+          path: "/profile",
+          element: isAuthenticated ? <Profile /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/hotels",
+          element: isAuthenticated ? <Hotel /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/detail/:id",
+          element: isAuthenticated ? <Detail /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/booking/:id",
+          element: isAuthenticated ? <Booking /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/bookings",
+          element: isAuthenticated ? <MyBookings /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/wishlist",
+          element: isAuthenticated ? <Wishlist /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/flights",
+          element: isAuthenticated ? <Flights /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/flight-detail/:id",
+          element: isAuthenticated ? (
+            <FlightDetail />
+          ) : (
+            <Navigate to="/login" />
+          ),
+        },
+        {
+          path: "/flight-booking/:id",
+          element: isAuthenticated ? (
+            <FlightBooking />
+          ) : (
+            <Navigate to="/login" />
+          ),
+        },
+        {
+          path: "/myFlight",
+          element: isAuthenticated ? <MyFlight /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/activities",
+          element: isAuthenticated ? <Activities /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/activity-detail/:id",
+          element: isAuthenticated ? (
+            <ActivityDetail />
+          ) : (
+            <Navigate to="/login" />
+          ),
+        },
+        {
+          path: "/activity-booking/:id",
+          element: isAuthenticated ? (
+            <ActivityBooking />
+          ) : (
+            <Navigate to="/login" />
+          ),
+        },
+        {
+          path: "/my-activity",
+          element: isAuthenticated ? <MyActivity /> : <Navigate to="/login" />,
+        },
+        {
+          path: "/about",
+          element: isAuthenticated ? <About /> : <Navigate to="/login" />,
+        },
+      ],
+    },
+  ]);
+  return authReady && <RouterProvider router={router} />;
+}
