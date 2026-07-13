@@ -123,7 +123,7 @@ export default function Detail() {
                 <div className="room-info">
                   <span>
                     <FaUserFriends />
-                    {singleHotel.guests} Guests
+                    {guests} Guests
                   </span>
 
                   <span>{singleHotel.bedrooms} Bedroom</span>

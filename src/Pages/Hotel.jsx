@@ -123,12 +123,12 @@ export default function Hotel() {
                   <div className="hotel-room-info">
                     <span>
                       <FaUserFriends />
-                      {h.guests} Guests
+                      {guests} Guests
                     </span>
 
-                    <span>{h.bedrooms} Bed</span>
+                    <span>{h.bedroom} Bed</span>
 
-                    <span>{h.bathrooms} Bathroom</span>
+                    <span>{h.bathroom} Bathroom</span>
                   </div>
                 </div>
 
