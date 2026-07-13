@@ -121,7 +121,7 @@ export default function Router() {
         {
           path: "/about",
           element: isAuthenticated ? <About /> : <Navigate to="/login" />,
-        },
+        }
       ],
     },
   ]);
