@@ -36,6 +36,7 @@ export default function useAuth() {
       setLoading(false);
       return res.user;
     } catch (error) {
+      
       setError(error.message);
       setLoading(false);
     }
